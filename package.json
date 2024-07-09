@@ -1,0 +1,33 @@
+{
+  "name": "discord-ai-voice-bot",
+  "version": "1.0.0",
+  "description": "Discord bot that repeats what you write with an artificial intelligence voice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevByFede/discord-AI-voice-bot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Javscript",
+    "Bot"
+  ],
+  "author": "DevByFede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevByFede/discord-AI-voice-bot/issues"
+  },
+  "homepage": "https://github.com/DevByFede/discord-AI-voice-bot#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.17.0",
+    "axios": "^1.7.2",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "libsodium-wrappers": "^0.7.13"
+  }
+}

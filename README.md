@@ -10,25 +10,19 @@ A Discord bot that repeats what you write with an AI voice
 </ul>
 
 # Initialization
-Create a new folder and open it into terminal, then inizialize the project:
+Clone tis repository and create a .env file that you'll put your keys (like .env.example file)
 ```
-npm init 
+DISCORD_BOT_TOKEN=INSERT_YOUR_SECRET_DISCORD_BOT_TOKEN
+DISCORD_CLIENT_ID=INSERT_YOUR_DISCORD_CLIENT_ID
+ELEVENLABS_API_KEY=INSERT_YOUR_SECRET_ELEVENLABS_API_KEY
+ELEVENLABS_VOICE_ID=INSERT_ELEVENLABS_VOICE_ID
 ```
-After that, install all the package we need:
-```
-npm i discord.js @discordjs/voice axios dotenv fs ffmpeg-static fluent-ffmpeg libsodium-wrappers
-```
-<ul>
-  <li> <ins>discord.js</ins> is the library that need to connect with the discord client end do some actions </li>
-  <li> <ins>@discordjs/voice</ins> is used to connect with vocal channels </li>
-  <li> <ins>axios</ins> for call an API </li>
-  <li> <ins>dotenv</ins> to manage the private keys into the .env file </li>
-  <li> <ins>fs</ins> to link and unlink the audio file receive by the ElevenLabs API </li>
-  <li> <ins>ffmpeg-static</ins> and fluent-ffmpeg for manage the audio file </li>
-  <li> <ins>libsodium-wrappers</ins> to reproduce the audio file </li>
-</ul>
+After that, you need to run npm command to install all node-modules.
 
-# Setup
+To get your ElevenLabs API Key, you need to create an account and click on your profile in the menu, so click "Profile + API key" and copy yor API Key. <br />
+For the voice, you can choose it in <a href="https://elevenlabs.io/docs/voices/premade-voices"> this link </a>. 
+
+# How it works - Code explanation
 ```javascript
 const { SlashCommandBuilder } = require('discord.js')
 ```
@@ -46,14 +40,12 @@ const commands = [
         ),
 ].map(command => command.toJSON());
 ```
-<hr />
 
-```javascript
-const { REST, Routes } = require('discord.js')
-```
 Then, send to bot the commands
 
 ```javascript
+const { REST, Routes } = require('discord.js')
+
 const rest = new REST().setToken(env.DISCORD_BOT_TOKEN);
 (async () => {
     try {
@@ -182,13 +174,13 @@ function convertMp3ToWav(inputPath, outputPath) {
 }
 ```
 
-Last but not least, we need to login our bot:
+Last but not least, we need to login our bot by his token:
 
 ```javascript
 client.login(env.DISCORD_BOT_TOKEN);
 ```
 
-#  How to get Discord client ID and bot ID
+#  How to get Discord client ID and bot ID - Add it into your server!
 Create a new bot into <a href="https://discord.com/developers/">Discord developer portal</a>
 
 https://github.com/DevByFede/discord-AI-voice-bot/assets/175064645/4634244d-efd2-4925-b2a2-c1a9bfca36e3
